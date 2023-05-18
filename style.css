@@ -1,0 +1,61 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;}
+#map{
+    width: 50%;
+    height: 50%;
+    margin: 25%;
+    margin-top: 12.5%
+}
+#routeInterface {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 9999;
+}
+
+#mapContainer {
+    height: 300px;
+    margin-bottom: 10px;
+}
+#markerInterfaceOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#markerInterface {
+    background-color: #fff;
+    padding: 20px;
+    width: 400px;
+}
+
+#markerInterface h2 {
+    margin-top: 0;
+}
+
+#markerInterface label {
+    display: block;
+    margin-top: 10px;
+}
+
+#markerInterface input[type="text"],
+#markerInterface input[type="file"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#markerInterface button {
+    margin-top: 10px;
+}

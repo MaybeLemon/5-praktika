@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Карта с маркерами и маршрутами</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maps.api.2gis.ru/2.0/loader.css">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script src="map.js"></script>
+    <script src="data.js"></script>
+    <script>// Обработчик события beforeunload
+    window.addEventListener('beforeunload', function(event) {
+        var message = 'Вы пытаетесь закрыть страницу. Ваши данные и настройки будут сохранены.';
+        event.returnValue = message;
+        return message;
+    });
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="map" style="width: 98%; height: 68%; margin: 10px"></div>
+<div id="controls">
+    <h2>Настройки карты</h2>
+    <label>
+        <input type="checkbox" id="zoomControlCheckbox" checked />
+        Показать элементы приближения/отдаления
+    </label>
+    <br />
+    <label>
+        <input type="checkbox" id="trafficControlCheckbox" checked />
+        Показать информацию о трафике
+    </label>
+    <br />
+    <label>
+        Максимальное приближение:
+        <input type="number" id="maxZoomInput" min="0" max="18" value="18" />
+    </label>
+    <br />
+    <label>
+        Максимальное удаление:
+        <input type="number" id="minZoomInput" min="0" max="18" value="0" />
+    </label>
+    <br />
+    <label>
+        <input type="checkbox" id="scrollWheelZoomCheckbox" checked />
+        Включить приближение колесиком мыши
+    </label>
+    <br />
+    <label>
+        <input type="checkbox" id="draggingCheckbox" checked />
+        Включить перетаскивание карты
+    </label>
+</div>
+<button id="openInterfaceButton">Открыть интерфейс создания маршрута</button>
+
+<div id="routeInterface" style="display: none;">
+    <h2>Создание маршрута</h2>
+    <label for="routeName">Название маршрута:</label>
+    <input type="text" id="routeName">
+    <br />
+    <br />
+    <label for="startAddress">Начальный адрес:</label>
+    <input type="text" id="startAddress">
+    <br />
+    <br />
+    <label for="endAddress">Конечный адрес:</label>
+    <input type="text" id="endAddress">
+
+    <div id="mapContainer"></div>
+
+    <button id="saveButton">Сохранить</button>
+</div>
+<button id="openMarkerInterfaceButton">Открыть интерфейс создания маркера</button>
+
+<div id="markerInterfaceOverlay" style="display: none;">
+    <div id="markerInterface">
+        <h2>Создание маркера</h2>
+        <label for="markerName">Название маркера:</label>
+        <input type="text" id="markerName">
+
+        <label for="markerAddress">Адрес:</label>
+        <input type="text" id="markerAddress">
+
+        <label for="markerLink">Ссылка на Web ресурс:</label>
+        <input type="text" id="markerLink">
+
+        <label for="markerImage">Изображение маркера:</label>
+        <input type="file" id="markerImage">
+
+        <label for="markerSize">Размер маркера:</label>
+        <input type="text" id="markerSize">
+
+        <label for="markerOpacity">Прозрачность маркера:</label>
+        <input type="text" id="markerOpacity">
+
+        <div id="mapContainer"></div>
+
+        <button id="previewButton">Предпросмотр</button>
+        <button id="saveButton">Сохранить</button>
+        <button id="closeButton">Закрыть</button>
+    </div>
+</div>
+
+
+</body>
+</html>
